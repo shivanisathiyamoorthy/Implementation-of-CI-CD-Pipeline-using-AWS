@@ -2,6 +2,7 @@
 ## Pre requestics
  - Aws console setup
  - Linux cognition
+ - Download Putty on System
 ## AWS services utilized
  - EC2 Server
  - S3 bucket
@@ -20,8 +21,18 @@
   - To install the CodeDeploy agent, first launch an  EC2 instance.
   - EC2 instance launching
     - Provide a addional tag name for the EC2 instance, rather than a generic name.
+    - Select an Linux machine.
     -  include http protocol in the security group.
-    - In advance details , attach the IAM role. 
-
+    - In advance details , attach the IAM role.
+  - Now, log in to the linux server using PuTTY and convert into Root user.
+  - Provide the following seven commands for installing the CodeDeploy agent.
+```
+yum update
+yum install ruby –y
+yum install wget –y
+wget https://aws-codedeploy-us-east-1.s3.amazonaws.com/latest/install
+chmod +x install
+service codedeploy-agent status
+```
 
 
