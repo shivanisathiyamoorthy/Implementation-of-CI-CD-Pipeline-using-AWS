@@ -34,5 +34,37 @@ wget https://aws-codedeploy-us-east-1.s3.amazonaws.com/latest/install
 chmod +x install
 service codedeploy-agent status
 ```
+### Step 3 : Code Development
+ - Launch another  linux EC2 server for code development and name it as developer machine .
+ - Login into the developer  machine as an IAM user using Access key which is downloaded previously .
+ - Then make working directory and name it .
+ - And create another working directory as sample app and insert the code inside "index.html " file using vi editor.
+```vi index.html
+```
+- Now create  appspec.yml file and insert the following command .
+```
+version: 0.0
+os: linux
+files:
+ - source: /index.html
+   destination: /var/www/html/
+hooks:
+ BeforeInstall:
+  - location: scripts/httpd_install.sh
+    timeout: 300
+    runas: root
+  - location: scripts/httpd_start.sh
+    timeout: 300
+    runas: root
+ ApplicationStop:
+  - location: scripts/httpd_stop.sh
+    timeout: 300
+    runas: root
+```
+- Then make another directory as scripts and insert the following commands :
+- For installin
+### Step 4 : Pushing To S3 bucket :
+- Go into s3 console and create s3 bucket with ACLS enabled .
+ 
 
 
