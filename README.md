@@ -1,4 +1,14 @@
 # Implementation-of-CI-CD-Pipeline-using-AWS
+## Process 
+- Creating role 
+- Iam user creation
+- Code deploy Agent installation
+- Development of code
+- Pusihing code to s3
+- Creating apllication in code deploy
+- Selecting where / which apllication is to be deployed
+-  Checking status of Pipeline
+- 
 ## Pre requestics
  - Aws console setup
  - Linux cognition
