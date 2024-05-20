@@ -8,7 +8,8 @@
 - Creating apllication in code deploy
 - Selecting where / which apllication is to be deployed
 -  Checking status of Pipeline
-- 
+  ![implementation](https://github.com/shivanisathiyamoorthy/Implementation-of-CI-CD-Pipeline-using-AWS/assets/140683043/bcf7f1cc-977d-461a-8caf-9bfc13eb942f)
+
 ## Pre requestics
  - Aws console setup
  - Linux cognition
