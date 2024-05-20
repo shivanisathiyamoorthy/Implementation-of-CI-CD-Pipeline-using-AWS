@@ -73,9 +73,35 @@ hooks:
     runas: root
 ```
 - Then make another directory as scripts and insert the following commands :
-- For installin
+- For installing Apache server in developer machine and To insert the commande use vi editor .
+- Create httpd_installing.sh file  and insert the command for installing Apache server.
+
+```
+#!/bin/bash
+yum install -y httpd
+```
+
+- Now create httpd_start.sh file and insert the command:
+
+```
+#!/bin/bash
+systemctl start httpd
+systemctl enable httpd
+```
+
+- Lastly , create httpd_stop.sh file and insert the command:
+  
+```
+#!/bin/bash
+systemctl stop httpd
+systemctl disable httpd
+```
+- After inserting the commands, exit the directory.
+
 ### Step 4 : Pushing To S3 bucket :
 - Go into s3 console and create s3 bucket with ACLS enabled .
+- Now create apllication named as sampleapp in Code Deploy apllications.
+- Then Push the 
  
 
 
