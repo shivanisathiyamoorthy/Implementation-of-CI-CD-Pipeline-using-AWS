@@ -1,5 +1,5 @@
 # Implementation-of-CI-CD-Pipeline-using-AWS
-## Process 
+## Process :
 - Creating role 
 - Iam user creation
 - Code deploy Agent installation
@@ -8,27 +8,31 @@
 - Creating apllication in code deploy
 - Selecting where / which apllication is to be deployed
 -  Checking status of Pipeline
+  
   ![implementation](https://github.com/shivanisathiyamoorthy/Implementation-of-CI-CD-Pipeline-using-AWS/assets/140683043/bcf7f1cc-977d-461a-8caf-9bfc13eb942f)
 
-## Pre requestics
+## Pre requestics :
  - Aws console setup
  - Linux cognition
  - Download Putty on System
-## AWS services utilized
+## AWS services utilized :
  - EC2 Server
  - S3 bucket
  - IAM roles and user
  - Code Deploy
  - Code Pipeline
 ## Implementation
-### Step 1 : Creating IAM Role and Users
+                                          
+![Screenshot (75)](https://github.com/shivanisathiyamoorthy/Implementation-of-CI-CD-Pipeline-using-AWS/assets/140683043/0169abff-1108-476f-98e2-587d67b5cf54)
+                                                            ## System Architecture
+### Step 1 : Creating IAM Role and Users :
  - Create two IAM roles. For the first role, grant EC2 access and S3 permissions. For the second role, provide permissions for CodeDeploy .
  - Now, create an IAM user, attach policies, and grant three permissions:
       - Full EC2 access
       - Full access to S3
       - Full access to CodeDeploy
  - After creating a user, proceed to the security credentials section, grant CLI access permissions, generate an access key, and download it.
- ### Step 2 : Installation of Code Deploy Agent 
+ ### Step 2 : Installation of Code Deploy Agent :
   - To install the CodeDeploy agent, first launch an  EC2 instance.
   - EC2 instance launching
     - Provide a addional tag name as (appname , Sampleapp) for the EC2 instance, rather than a generic name.
@@ -45,7 +49,7 @@ wget https://aws-codedeploy-us-east-1.s3.amazonaws.com/latest/install
 chmod +x install
 service codedeploy-agent status
 ```
-### Step 3 : Code Development
+### Step 3 : Code Development :
  - Launch another  linux EC2 server for code development and name it as developer machine .
  - Login into the developer  machine as an IAM user using Access key which is downloaded previously .
  - Then make working directory and name it .
@@ -106,7 +110,7 @@ systemctl disable httpd
 ```
  # aws deploy push --application-name sampleapp --s3-location s3://gir-sampleapPip/sampleapp.zip
 ```
-### Step 5 : Deployment Process
+### Step 5 : Deployment Process :
 - Go to CodeDeploy, navigate to the application, and create a deployment group .
 - Give a name and then select the service role which was created before in IAM with CodeDeploy permissions.
 - Then select in-place deployment and disable Load balancer .
@@ -118,8 +122,9 @@ systemctl disable httpd
 - After running the program, you will get the output as :
   
 ![output](https://github.com/shivanisathiyamoorthy/Implementation-of-CI-CD-Pipeline-using-AWS/assets/140683043/023738f8-35b5-4fe1-9f08-1a808e83c3e5)
+                                      
 
-### Step 6 :  Pipeline
+### Step 6 :  Pipeline :
 - Navigate to CodePipeline, provide the pipeline name, select the pipeline type, and choose the execution type.
 - After giving the name, the role will be created automatically. Now, select Amazon S3 as the source and choose the bucket where the code is stored.
 - Provide the object key. Then, select AWS CodeDeploy for deployment and specify the regions. Next, provide the application name. The deployment group will be automatically.
