@@ -100,10 +100,11 @@ systemctl disable httpd
 
 ### Step 4 : Pushing To S3 bucket :
 - Go into s3 console and create s3 bucket with ACLS enabled .
+- And enable bucket versioning .
 - Now create apllication named as sampleapp in Code Deploy apllications.
 - Then Push the code(sample app) from Linux terminal(application) to the S3 bucket using the following command :
 ```
- # aws deploy push --application-name sampleapp --s3-location s3://gir-sampleapp/sampleapp.zip
+ # aws deploy push --application-name sampleapp --s3-location s3://gir-sampleapPip/sampleapp.zip
 ```
 ### Step 5 : Deployment Process
 - Go to CodeDeploy, navigate to the application, and create a deployment group .
@@ -114,9 +115,23 @@ systemctl disable httpd
 - Choose the revision location, which is the S3 bucket, and create the deployment.
 - Check for a successful status.
 - To run the code, copy the public ip address of ec2 Server 1 and paste it into the browser URL.
+- After running the program, you will get the output as :
+  
+![output](https://github.com/shivanisathiyamoorthy/Implementation-of-CI-CD-Pipeline-using-AWS/assets/140683043/023738f8-35b5-4fe1-9f08-1a808e83c3e5)
 
-
-### Step 6 : 
- 
-
+### Step 6 :  Pipeline
+- Navigate to CodePipeline, provide the pipeline name, select the pipeline type, and choose the execution type.
+- After giving the name, the role will be created automatically. Now, select Amazon S3 as the source and choose the bucket where the code is stored.
+- Provide the object key. Then, select AWS CodeDeploy for deployment and specify the regions. Next, provide the application name. The deployment group will be automatically.
+- Preview and create pipeline .
+- To check the pipeline conection ,Change the code in the developer machine and save it.
+- Then zip the file , using the following command :
+```
+   zip -r ../sampleapp.zip .
+```
+- After this upload the file in s3 using the following command:
+```
+  aws s3 cp sampleapp.zip s3://bucketname
+```
+- After uploading the new code , now check the code by using ec2 server 1 ip address . 
 
