@@ -24,7 +24,7 @@
 ## Implementation
                                           
 ![Screenshot (75)](https://github.com/shivanisathiyamoorthy/Implementation-of-CI-CD-Pipeline-using-AWS/assets/140683043/0169abff-1108-476f-98e2-587d67b5cf54)
-                                                            ## System Architecture
+                                                                              ## System Architecture
 ### Step 1 : Creating IAM Role and Users :
  - Create two IAM roles. For the first role, grant EC2 access and S3 permissions. For the second role, provide permissions for CodeDeploy .
  - Now, create an IAM user, attach policies, and grant three permissions:
