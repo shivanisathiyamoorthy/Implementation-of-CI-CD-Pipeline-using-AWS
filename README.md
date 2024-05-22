@@ -31,7 +31,7 @@
  ### Step 2 : Installation of Code Deploy Agent 
   - To install the CodeDeploy agent, first launch an  EC2 instance.
   - EC2 instance launching
-    - Provide a addional tag name for the EC2 instance, rather than a generic name.
+    - Provide a addional tag name as (appname , Sampleapp) for the EC2 instance, rather than a generic name.
     - Select an Linux machine.
     -  include http protocol in the security group.
     - In advance details , attach the IAM role.
@@ -89,7 +89,7 @@ systemctl start httpd
 systemctl enable httpd
 ```
 
-- Lastly , create httpd_stop.sh file and insert the command:
+- Finally,create httpd_stop.sh file and insert the command:
   
 ```
 #!/bin/bash
@@ -101,7 +101,22 @@ systemctl disable httpd
 ### Step 4 : Pushing To S3 bucket :
 - Go into s3 console and create s3 bucket with ACLS enabled .
 - Now create apllication named as sampleapp in Code Deploy apllications.
-- Then Push the 
+- Then Push the code(sample app) from Linux terminal(application) to the S3 bucket using the following command :
+```
+ # aws deploy push --application-name sampleapp --s3-location s3://gir-sampleapp/sampleapp.zip
+```
+### Step 5 : Deployment Process
+- Go to CodeDeploy, navigate to the application, and create a deployment group .
+- Give a name and then select the service role which was created before in IAM with CodeDeploy permissions.
+- Then select in-place deployment and disable Load balancer .
+- Next, select Amazon EC2 instances in the environment configuration and provide the key and tag values(appname , Sampleapp)  of the previously created instance for the first EC2 server .
+- After this , Create deployment and then select the deployment group .
+- Choose the revision location, which is the S3 bucket, and create the deployment.
+- Check for a successful status.
+- To run the code, copy the public ip address of ec2 Server 1 and paste it into the browser URL.
+
+
+### Step 6 : 
  
 
 
