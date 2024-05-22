@@ -133,5 +133,7 @@ systemctl disable httpd
 ```
   aws s3 cp sampleapp.zip s3://bucketname
 ```
-- After uploading the new code , now check the code by using ec2 server 1 ip address . 
+- After uploading the new code , now check the code by using ec2 server 1 ip address.
+
+  ![1_D0crmvYN_8aAXXOJLSuSEA](https://github.com/shivanisathiyamoorthy/Implementation-of-CI-CD-Pipeline-using-AWS/assets/140683043/6e8de7fa-e5ae-4cfe-9756-f2e28a40a203)
 
